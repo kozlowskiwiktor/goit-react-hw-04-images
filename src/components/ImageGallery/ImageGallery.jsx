@@ -17,9 +17,9 @@ function ImageGallery({ images, modalImageUrl }) {
   );
 }
 
-export default ImageGallery;
-
 ImageGallery.propTypes = {
   images: PropTypes.array,
   modalImageUrl: PropTypes.func,
 };
+
+export default ImageGallery;

@@ -19,10 +19,10 @@ function ImageGalleryItem({ smallImageUrl, tags, modalImageUrl }) {
   );
 }
 
-export default ImageGalleryItem;
-
 ImageGalleryItem.propTypes = {
   smallImageUrl: PropTypes.string,
   tags: PropTypes.string,
   modalImageUrl: PropTypes.func,
 };
+
+export default ImageGalleryItem;

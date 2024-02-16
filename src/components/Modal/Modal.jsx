@@ -40,9 +40,9 @@ function Modal({ modalImage, alt, onClose }) {
   );
 }
 
-export default Modal;
-
 Modal.propTypes = {
   modalImage: PropTypes.string,
   alt: PropTypes.string,
 };
+
+export default Modal;
