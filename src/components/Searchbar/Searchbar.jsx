@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import css from './Searchbar.module.css';
 
 function Searchbar({ onInputValue, onSubmit }) {
   const [query, setQuery] = useState('');
@@ -19,9 +21,9 @@ function Searchbar({ onInputValue, onSubmit }) {
 
   return (
     <header>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.searchForm}>
         <input
-          // className={css.searchFormInput}
+          className={css.searchFormInput}
           type="text"
           name="query"
           value={query}
@@ -30,10 +32,16 @@ function Searchbar({ onInputValue, onSubmit }) {
           placeholder="Search images and photos"
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={css.searchFormButton}>
+          Search
+        </button>
       </form>
     </header>
   );
 }
 
 export default Searchbar;
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
