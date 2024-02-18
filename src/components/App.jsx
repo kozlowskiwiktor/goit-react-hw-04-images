@@ -78,7 +78,11 @@ export const App = ({ query }) => {
 
   return (
     <div>
-      <Searchbar onInputValue={handleInputValue} onSubmit={handleSubmit} />
+      <Searchbar
+        onInputValue={handleInputValue}
+        onSubmit={handleSubmit}
+        error={error}
+      />
       {loading && <Loader />}
       {images.length > 0 && (
         <ImageGallery images={images} modalImageUrl={handleModalImageUrl} />

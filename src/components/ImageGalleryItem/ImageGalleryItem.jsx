@@ -5,6 +5,7 @@ function ImageGalleryItem({ smallImageUrl, tags, modalImageUrl }) {
   const handleClick = () => {
     modalImageUrl(smallImageUrl, tags);
   };
+
   return (
     <>
       <li className={css.imageGalleryItem}>
