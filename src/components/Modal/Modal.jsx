@@ -23,9 +23,6 @@ function Modal({ modalImage, alt, onClose }) {
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscKeyPress);
-  }, [handleEscKeyPress]);
-
-  useEffect(() => {
     return () => {
       document.addEventListener('keydown', handleEscKeyPress);
     };
