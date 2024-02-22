@@ -25,15 +25,6 @@ export const App = ({ query }) => {
     setImages([]);
   };
 
-  const handleInputValue = query => {
-    if (inputValue === query) {
-      return;
-    }
-    resetState();
-
-    setInputValue(query);
-  };
-
   const handlePageChange = () => {
     setPage(prevPage => prevPage + 1);
   };
@@ -51,15 +42,20 @@ export const App = ({ query }) => {
     setIsSelectedImage(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = query => {
     setIsFormSubmitted(true);
+    if (inputValue === query) {
+      return;
+    }
+    resetState();
+
+    setInputValue(query);
   };
 
   useEffect(() => {
     const getImages = async () => {
       if (isFormSubmitted && inputValue && page) {
         setLoading(true);
-
         try {
           const imagesData = await fetchImages(inputValue, page);
           const images = imagesData.hits;
@@ -78,11 +74,7 @@ export const App = ({ query }) => {
 
   return (
     <div>
-      <Searchbar
-        onInputValue={handleInputValue}
-        onSubmit={handleSubmit}
-        error={error}
-      />
+      <Searchbar onSubmit={handleSubmit} error={error} />
       {loading && <Loader />}
       {images.length > 0 && (
         <ImageGallery images={images} modalImageUrl={handleModalImageUrl} />
